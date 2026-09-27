@@ -17,3 +17,4 @@ spec:
           port: 8080
       middlewares:
         - name: error-pages-middleware
+  tls: {}
