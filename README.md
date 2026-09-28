@@ -1,9 +1,9 @@
 # Better error pages
 
-This deployment is based on: [error-pages container](https://github.com/tarampampam/error-pages), forked from [vstrycek/turingpi-error-pages](https://gitlab.com/vstrycek/turingpi-error-pages)
+This deployment is based on: [error-pages container](https://github.com/tarampampam/error-pages), forked from [vstrycek/turingpi-error-pages](https://gitlab.com/vstrycek/turingpi-error-pages), updated for traefik v3 API.
 
 ## What it does
-It uses priority in Traefik to display a nice error page in case it's not handled by the targeted app. It can be also added into any service ingress if that service does not handle 404,500,etc. errors in nice way.
+It uses priority in Traefik to display a nice error page in case it's not handled by the targeted app. It can be also added into any service ingress if that service does not handle 404, 500, etc. errors in nice way.
 
 ## Themes
 
