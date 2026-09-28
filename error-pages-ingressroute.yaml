@@ -2,18 +2,31 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: error-pages-ingressroute
+  name: error-pages-catchall-http
 spec:
-  entryPoints:
-    - websecure
-    - web
+  entryPoints: [web]
   routes:
     - kind: Rule
-      match: HostRegexp(`{host:.+}`)
+      match: PathPrefix(`/`)
       priority: 1
       services:
-        - kind: Service
-          name: error-pages
+        - name: error-pages
+          port: 8080
+      middlewares:
+        - name: error-pages-middleware
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: error-pages-catchall-https
+spec:
+  entryPoints: [websecure]
+  routes:
+    - kind: Rule
+      match: PathPrefix(`/`)
+      priority: 1
+      services:
+        - name: error-pages
           port: 8080
       middlewares:
         - name: error-pages-middleware
